@@ -1,0 +1,186 @@
+.layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFF5FB 0%, #F0E5FF 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  padding-inline: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(255, 245, 251, 0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(238, 140, 202, 0.15);
+}
+
+.logoContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: bold;
+  color: #EE8CCA;
+  margin-left: 12px;
+  /* Gradient text for extra magic */
+  background: linear-gradient(90deg, #EE8CCA, #A388EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(193, 92, 170, 0.2);
+}
+
+.content {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+/* Add clouds decoration */
+.content::before, .content::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(249, 210, 236, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.content::before {
+  top: 10%;
+  left: 5%;
+  transform: scale(1.5);
+}
+
+.content::after {
+  top: 15%;
+  right: 5%;
+  transform: scale(2);
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: 32px !important;
+  color: #C15CAA !important;
+  font-size: 36px !important;
+  position: relative;
+  display: inline-block;
+}
+
+/* Add sparkles to title */
+.pageTitle::before, .pageTitle::after {
+  content: "✦";
+  position: absolute;
+  top: 0;
+  color: #F9C54C;
+  animation: twinkle 2s infinite alternate;
+}
+
+.pageTitle::before {
+  left: -30px;
+  animation-delay: 0s;
+}
+
+.pageTitle::after {
+  right: -30px;
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+.cardRandomizerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 32px;
+  /* Add rainbow border */
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#FFF5FB, #FFF5FB), 
+    linear-gradient(to right, #FF6B8B, #F9C54C, #85D9AF, #A388EE, #EE8CCA);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardRandomizerContainer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F9D2EC' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M0 20C0 8.954 8.954 0 20 0s20 8.954 20 20-8.954 20-20 20S0 31.046 0 20zm2 0c0 9.941 8.059 18 18 18s18-8.059 18-18S29.941 2 20 2 2 10.059 2 20zm2 0c0 8.837 7.163 16 16 16s16-7.163 16-16S28.837 4 20 4 4 11.163 4 20z'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.footer {
+  text-align: center;
+  background: rgba(255, 245, 251, 0.8);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add rainbow line to footer */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #FF6B8B, #F9C54C, #85D9AF, #A388EE, #EE8CCA);
+}
+
+.footer a {
+  color: #A388EE;
+  transition: color 0.3s;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 0 8px;
+  border-radius: 20px;
+}
+
+.footer a:hover {
+  color: #EE8CCA;
+  background-color: rgba(249, 210, 236, 0.2);
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+  
+  .pageTitle {
+    font-size: 28px !important;
+  }
+  
+  .footer {
+    padding: 16px;
+  }
+  
+  .content::before, .content::after {
+    display: none;
+  }
+}

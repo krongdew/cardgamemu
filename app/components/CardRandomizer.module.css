@@ -1,0 +1,166 @@
+.container {
+    padding: 24px;
+    background-color: #FFF5FB;
+    border-radius: 16px;
+    min-height: 60vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Add magical pattern background */
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23F9D2EC' fill-opacity='0.2'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .title {
+    text-align: center;
+    color: #1890ff !important;
+    margin-bottom: 20px !important;
+    font-weight: bold !important;
+    position: relative;
+    z-index: 1;
+    font-size: 32px !important;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cardRow {
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* CSS สำหรับส่วนของการแสดงการสับไพ่ */
+  .shufflingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    position: relative;
+    z-index: 1;
+    perspective: 1000px;
+    margin: 30px 0;
+  }
+  
+  .shufflingCard {
+    position: absolute;
+    width: 220px;
+    height: 310px;
+    animation: shuffleMove 0.5s ease-in-out infinite alternate, 
+               shuffleRotate 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+  
+  /* อนิเมชั่นเคลื่อนไหวซ้ายขวา */
+  @keyframes shuffleMove {
+    0% { transform: translateX(-10px) rotate(var(--rotation, -5deg)); }
+    100% { transform: translateX(10px) rotate(var(--rotation, 5deg)); }
+  }
+  
+  /* อนิเมชั่นการหมุน */
+  @keyframes shuffleRotate {
+    0% { transform: rotateY(0deg) translateZ(10px); }
+    25% { transform: rotateY(20deg) translateZ(20px); }
+    50% { transform: rotateY(0deg) translateZ(10px); }
+    75% { transform: rotateY(-20deg) translateZ(20px); }
+    100% { transform: rotateY(0deg) translateZ(10px); }
+  }
+  
+  /* อนิเมชั่นการตกลงบนโต๊ะสำหรับผลลัพธ์สุดท้าย */
+  .cardWrapper {
+    opacity: 0;
+    animation-name: cardDrop;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    transform: translateY(0); 
+  }
+  
+  @keyframes cardDrop {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px) scale(0.8) rotate(8deg);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(20px) scale(1.05) rotate(-2deg);
+    }
+    80% {
+      transform: translateY(-10px) scale(0.98) rotate(1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(0);
+    }
+  }
+  
+  .gameCard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-width: 2px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .gameCard:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .effectText {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+  }
+  
+  /* เพิ่มเงาลงบนพื้นสำหรับการ์ดที่กำลังสุ่ม */
+  .shufflingContainer::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .controls > * {
+      width: 100% !important;
+      max-width: 240px;
+    }
+    
+    .shufflingCard {
+      width: 180px;
+      height: 260px;
+    }
+  }

@@ -1,0 +1,109 @@
+:root {
+  --foreground-rgb: 126, 88, 134; /* ม่วงเข้ม */
+  --background-rgb: 255, 249, 252; /* ชมพูอ่อนมาก */
+  --primary-color: #EE8CCA; /* ชมพูหลัก */
+  --secondary-color: #A388EE; /* ม่วงพาสเทล */
+  --accent-color: #85D9AF; /* เขียวพาสเทล */
+  --warning-color: #F9C54C; /* เหลืองพาสเทล */
+  --error-color: #FF6B8B; /* แดงอมชมพู */
+  --text-color: #7E5886; /* ม่วงเข้ม */
+  --heading-color: #C15CAA; /* ชมพูเข้ม */
+  --border-color: #F9D2EC; /* ชมพูอ่อน */
+  --card-bg: #FFF5FB; /* พื้นหลังการ์ด */
+  --hover-color: #F9A8DC; /* สี hover */
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 245, 251, 1) 0%,
+    rgba(255, 249, 252, 1) 100%
+  );
+  background-attachment: fixed;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* เพิ่มเอฟเฟกต์แฟนตาซีแบบ My Little Pony */
+.rainbow-border {
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(white, white), 
+    linear-gradient(to right, #FF6B8B, #F9C54C, #85D9AF, #A388EE, #EE8CCA);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* เพิ่มเงาแนวแฟนตาซี */
+.fantasy-shadow {
+  box-shadow: 0 6px 20px rgba(238, 140, 202, 0.25);
+}
+
+/* เพิ่มไอคอนแบบ glitter */
+.glitter-icon {
+  position: relative;
+}
+
+.glitter-icon::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* เพิ่มเอฟเฟกต์เส้นคลื่น */
+.wavy-divider {
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+}
+
+.wavy-divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--secondary-color), var(--primary-color));
+  border-radius: 50%;
+  animation: wave 8s infinite linear;
+}
+
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}

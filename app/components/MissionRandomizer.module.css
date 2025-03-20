@@ -1,0 +1,247 @@
+/* my-card-game\app\components\MissionRandomizer.module.css */
+.missionCard {
+    margin-bottom: 32px;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 25px rgba(238, 140, 202, 0.25) !important;
+    border: 2px solid #F9D2EC !important;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Background pattern */
+  .missionCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F9D2EC' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .missionTitle {
+    text-align: center;
+    color: #EE8CCA !important;
+    margin-bottom: 0 !important;
+    font-weight: bold !important;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #EE8CCA, #A388EE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(193, 92, 170, 0.2);
+  }
+  
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .missionCounter {
+    width: 100%;
+    max-width: 500px;
+    text-align: right;
+    color: #A388EE;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
+  .missionInput {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 8px;
+    border-color: #F9D2EC !important;
+    border-radius: 12px !important;
+  }
+  
+  .missionInput:focus {
+    border-color: #EE8CCA !important;
+    box-shadow: 0 0 0 2px rgba(238, 140, 202, 0.2) !important;
+  }
+  
+  .inputControls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .randomizeButton {
+    background: linear-gradient(to right, #A388EE, #EE8CCA) !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(163, 136, 238, 0.4) !important;
+  }
+  
+  .randomizeButton:hover {
+    background: linear-gradient(to right, #EE8CCA, #A388EE) !important;
+  }
+  
+  .missionList {
+    width: 100%;
+    max-width: 500px;
+    background-color: #FFF5FB;
+    border-radius: 12px;
+    padding: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .missionItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #F9D2EC;
+    transition: background-color 0.3s;
+  }
+  
+  .missionItem:last-child {
+    border-bottom: none;
+  }
+  
+  .missionItem:hover {
+    background-color: rgba(249, 210, 236, 0.1);
+  }
+  
+  .deleteButton {
+    color: #FF6B8B !important;
+  }
+  
+  .deleteButton:hover {
+    background-color: rgba(255, 107, 139, 0.1) !important;
+  }
+  
+  .randomizedContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* อนิเมชั่นหมุน */
+  .spinning {
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+  }
+  
+  .randomMissionDisplay {
+    background-color: #FFF5FB;
+    border: 2px dashed #EE8CCA;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    min-height: 120px;
+  }
+  
+  .randomMissionDisplay::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    animation: rotate 10s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* เพิ่มเอฟเฟกต์เงาสายรุ้ง slow motion */
+  .randomMissionDisplay::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    right: -10%;
+    bottom: -10%;
+    background: linear-gradient(
+      45deg, 
+      #FF6B8B,   /* แดง */
+      #F9C54C,   /* เหลือง */
+      #85D9AF,   /* เขียว */
+      #A388EE,   /* ม่วง */
+      #EE8CCA    /* ชมพู */
+    );
+    background-size: 400% 400%;
+    opacity: 0.3;
+    filter: blur(50px);
+    animation: slowRainbow 10s ease infinite;
+    z-index: -2; /* เพิ่มความลึกของ z-index */
+    transform-origin: center center;
+    border-radius: 16px; /* ให้มีรูปร่างเหมือนกับ container */
+  }
+  
+  @keyframes slowRainbow {
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(0deg);
+    }
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(120deg);
+    }
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(360deg);
+    }
+  }
+  .randomMissionText {
+    color: #7E5886 !important;
+    font-size: 2rem !important;
+    line-height: 1.4 !important;
+    word-break: break-word;
+  }
+  
+  .backButton {
+    min-width: 200px;
+    border-radius: 30px !important;
+    background: linear-gradient(to right, #A388EE, #EE8CCA) !important;
+    border: none !important;
+    height: 48px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(163, 136, 238, 0.4) !important;
+    transition: all 0.3s ease;
+  }
+  
+  .backButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(163, 136, 238, 0.5) !important;
+    background: linear-gradient(to right, #EE8CCA, #A388EE) !important;
+  }
+  
+  @media (max-width: 576px) {
+    .inputContainer {
+      padding: 16px;
+    }
+  
+    .randomMissionText {
+      font-size: 1.5rem !important;
+    }
+  
+    .randomMissionDisplay {
+      padding: 24px;
+    }
+}
