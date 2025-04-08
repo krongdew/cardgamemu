@@ -1,3 +1,4 @@
+//my-card-game\app\components\AntdProvider.jsx
 'use client';
 
 import React from 'react';
@@ -9,57 +10,72 @@ ConfigProvider.config({
   warning: false,
 });
 
-// กำหนดธีมสีแนว My Little Pony (โทนสีพาสเทลชมพู)
+// กำหนดธีมสีแนวแฮรี่พอตเตอร์แบบเข้ม
 const theme = {
   token: {
-    colorPrimary: '#EE8CCA', // ชมพูเข้ม (สีหลัก)
-    colorSuccess: '#85D9AF', // เขียวพาสเทล
-    colorWarning: '#F9C54C', // เหลืองพาสเทล
-    colorError: '#FF6B8B', // แดงอมชมพู
-    colorInfo: '#A388EE', // ม่วงพาสเทล
+    colorPrimary: '#8E0E00', // แดงกริฟฟินดอร์เข้ม (สีหลัก)
+    colorSuccess: '#0D5C3A', // เขียวสลิธีริน เข้มขึ้น
+    colorWarning: '#FFD700', // ทองกริฟฟินดอร์ 
+    colorError: '#B30000', // แดงเลือด เข้มขึ้น
+    colorInfo: '#183A7A', // น้ำเงินเรเวนคลอ เข้มขึ้น
     
     // ปรับแต่งองค์ประกอบทั่วไป
-    colorTextBase: '#7E5886', // สีข้อความทั่วไป (ม่วงเข้ม)
-    colorBgBase: '#FFF9FC', // สีพื้นหลังอ่อนๆ
-    colorBorder: '#F6C9E7', // สีขอบ
-    colorLink: '#AB68CA', // สีลิงก์
-
+    colorTextBase: '#E0DBCF', // สีข้อความทั่วไป - สว่าง
+    colorBgBase: '#1A1E26', // สีพื้นหลังเข้ม 
+    colorBorder: '#704214', // สีขอบไม้เข้ม
+    colorLink: '#FFD700', // สีลิงก์ - ทอง
+    
     // ปรับแต่งรัศมีขอบและความละเอียด
-    borderRadius: 12, // โค้งมากขึ้น
+    borderRadius: 8, // ลดความโค้งให้คลาสสิกมากขึ้น
     wireframe: false,
   },
   components: {
     Card: {
-      colorBgContainer: '#FFF5FB', // พื้นหลังการ์ดสีชมพูอ่อนมาก
-      colorBorderSecondary: '#F9D2EC', // ขอบการ์ดสีชมพูอ่อน
-      borderRadiusLG: 16, // การ์ดโค้งมากขึ้น
-      boxShadowTertiary: '0 4px 12px rgba(238, 140, 202, 0.15)', // เงาสีชมพู
+      colorBgContainer: '#1A1E26', // พื้นหลังการ์ดสีเข้ม
+      colorBorderSecondary: '#704214', // ขอบการ์ดสีน้ำตาลไม้
+      borderRadiusLG: 8, // การ์ดโค้งน้อยลงให้ดูคลาสสิก
+      boxShadowTertiary: '0 4px 12px rgba(0, 0, 0, 0.4), 0 0 10px rgba(211, 166, 37, 0.1)', // เงาสีทองและดำ
     },
     Button: {
-      colorPrimary: '#EE8CCA', // ปุ่มหลักสีชมพู
-      colorPrimaryHover: '#F9A8DC', // สีปุ่มหลักเมื่อ hover
-      borderRadius: 20, // ปุ่มมนมากขึ้น
-      controlHeightLG: 45, // ปุ่มขนาดใหญ่สูงมากขึ้น
+      colorPrimary: '#8E0E00', // ปุ่มหลักสีแดงกริฟฟินดอร์เข้ม
+      colorPrimaryHover: '#B30000', // สีปุ่มหลักเมื่อ hover
+      borderRadius: 6, // ปุ่มโค้งน้อยลง
+      controlHeightLG: 42, // ปุ่มขนาดเหมาะสม
     },
     Divider: {
-      colorSplit: '#F9D2EC', // เส้นแบ่งสีชมพูอ่อน
+      colorSplit: '#704214', // เส้นแบ่งสีน้ำตาลไม้
     },
     Typography: {
-      colorTextHeading: '#C15CAA', // สีของหัวข้อเป็นชมพูเข้ม
+      colorTextHeading: '#D3A625', // สีของหัวข้อเป็นทอง
     },
     Statistic: {
-      colorTextDescription: '#C15CAA', // สีคำอธิบายใน Statistic
-      colorText: '#EE8CCA', // สีตัวเลขใน Statistic
+      colorTextDescription: '#E0DBCF', // สีคำอธิบายใน Statistic
+      colorText: '#D3A625', // สีตัวเลขใน Statistic เป็นทอง
     },
     Alert: {
-      colorWarning: '#FBDAA0', // พื้นหลัง Alert แบบเตือนเป็นสีส้มพาสเทล
-      colorWarningBorder: '#F9C54C', // ขอบ Alert แบบเตือน
-      colorWarningText: '#946400', // ข้อความใน Alert แบบเตือน
+      colorWarning: '#3C2A14', // พื้นหลัง Alert แบบเตือนเป็นสีน้ำตาลเข้ม
+      colorWarningBorder: '#D3A625', // ขอบ Alert แบบเตือน
+      colorWarningText: '#FFD700', // ข้อความใน Alert แบบเตือน เป็นทอง
     },
     Input: {
-      colorBgContainer: '#FFF9FC', // พื้นหลัง input
-      colorBorder: '#F9D2EC', // ขอบของ input
-      activeBorderColor: '#EE8CCA', // สีขอบเมื่อ focus
+      colorBgContainer: '#232830', // พื้นหลัง input เข้ม
+      colorBorder: '#704214', // ขอบของ input
+      activeBorderColor: '#D3A625', // สีขอบเมื่อ focus
+    },
+    Select: {
+      colorBgContainer: '#232830', // พื้นหลัง select เข้ม
+      colorBorder: '#704214', // ขอบของ select
+      colorPrimaryActive: '#D3A625', // สี active
+    },
+    Tooltip: {
+      colorBgDefault: '#0F1419', // พื้นหลัง tooltip เข้มมาก
+      colorTextLightSolid: '#E0DBCF', // ข้อความใน tooltip
+    },
+    Modal: {
+      colorBgElevated: '#1A1E26', // พื้นหลัง modal เข้ม
+    },
+    Dropdown: {
+      colorBgElevated: '#1A1E26', // พื้นหลัง dropdown เข้ม
     },
   },
 };

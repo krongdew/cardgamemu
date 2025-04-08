@@ -12,13 +12,13 @@ const { Meta } = Card;
 const CardRandomizer = () => {
   // สร้างชุดการ์ดตัวอย่างตามที่กำหนด
   const cardDeck = [
-    { id: 1, name: 'บล็อคเครื่องมือ', type: 'แดง', effect: 'บล็อคเครื่องมือ', image: '/Images/blockequip.jpg' },
+    { id: 1, name: 'บล็อคเครื่องมือ', type: 'แดง', effect: 'บล็อคเครื่องมือ', image: '/Images/blockequip.png' },
     { id: 2, name: 'ขโมยไอเดีย', type: 'แดง', effect: 'ขโมยไอเดีย 30 วิ', image: '/Images/stealidea.jpg' },
     { id: 3, name: 'เพิ่มเงื่อนไขพิเศษ', type: 'น้ำเงิน', effect: 'เพิ่มเงื่อนไขพิเศษ', image: '/Images/special.jpg' },
     { id: 4, name: 'สปีดบูท', type: 'เขียว', effect: 'สปีดบูททำงานไม่ถูกรบกวน 3 นาที', image: '/Images/speedboot.jpg' },
     { id: 5, name: 'หยุดทำงาน', type: 'แดง', effect: 'หยุดทำงาน 1 คน (10 วินาที)', image: '/Images/stopone.jpg' },
     { id: 6, name: 'อีกฝั่งหยุดทำงาน', type: 'เขียว', effect: 'ฝั่งตรงข้ามหยุดทำงาน 1 คน (10 วิ)', image: '/Images/enemystop.jpg' },
-    { id: 7, name: 'หยุดทำงานทั้งคู่', type: 'แดง', effect: 'หยุดทำงานทั้งคู่ 10 วิ', image: '/Images/stopboth.jpg' },
+    { id: 7, name: 'หยุดทำงานทั้งคู่', type: 'แดง', effect: 'หยุดทำงานทั้งคู่ 10 วิ', image: '/Images/stopboth.png' },
     { id: 8, name: 'อีกฝั่งหยุดทำงานทั้งคู่', type: 'เขียว', effect: 'ฝั่งตรงข้ามหยุดทำงานทั้งคู่ 10 วิ', image: '/Images/enemystopboth.jpg' },
   ];
 

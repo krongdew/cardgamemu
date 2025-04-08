@@ -1,194 +1,284 @@
+/* my-card-game\app\components\CountdownTimer.module.css */
 .timerCard {
-    margin-bottom: 32px;
-    border-radius: 16px !important;
-    box-shadow: 0 8px 25px rgba(238, 140, 202, 0.25) !important;
-    border: 2px solid #F9D2EC !important;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  /* Add magical sparkles background */
-  .timerCard::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F9D2EC' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    z-index: 0;
-    pointer-events: none;
-  }
-  
-  .timerTitle {
-    text-align: center;
-    color: #EE8CCA !important;
-    margin-bottom: 0 !important;
-    font-weight: bold !important;
-    position: relative;
-    z-index: 1;
-    /* Add magical gradient text */
-    background: linear-gradient(90deg, #EE8CCA, #A388EE);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(193, 92, 170, 0.2);
-  }
-  
-  .settingsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 0;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .inputRow {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-  
-  .timeInput {
-    width: 100%;
-    margin-top: 8px;
-    border-color: #F9D2EC !important;
-    border-radius: 10px !important;
-  }
-  
-  .timeInput:focus,
-  .timeInput:hover {
-    border-color: #EE8CCA !important;
-    box-shadow: 0 0 0 2px rgba(238, 140, 202, 0.2) !important;
-  }
-  
-  .startButton {
-    min-width: 150px;
-    border-radius: 30px !important;
-    background: linear-gradient(to right, #EE8CCA, #F9A8DC) !important;
-    border: none !important;
-    height: 48px !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    box-shadow: 0 4px 15px rgba(238, 140, 202, 0.4) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-  
-  .startButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(238, 140, 202, 0.5) !important;
-    background: linear-gradient(to right, #F9A8DC, #EE8CCA) !important;
-  }
-  
-  .countdownContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 0;
-    position: relative;
-    z-index: 1;
-  }
-  
-  /* ปรับขนาด font ให้ใหญ่มากๆ */
+  margin-bottom: 32px;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(211, 166, 37, 0.2) !important;
+  border: 3px solid #704214 !important;
+  overflow: hidden;
+  position: relative;
+  background-color: #1A1E26 !important;
+}
+
+/* Add magical runes background */
+.timerCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23704214' fill-opacity='0.08'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.timerTitle {
+  text-align: center;
+  color: #D3A625 !important;
+  margin-bottom: 0 !important;
+  font-weight: bold !important;
+  position: relative;
+  z-index: 1;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.inputRow {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.inputRow strong {
+  color: #E0DBCF !important;
+}
+
+.timeInput {
+  width: 100%;
+  margin-top: 8px;
+  border-color: #704214 !important;
+  border-radius: 6px !important;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  background-color: #232830 !important;
+  color: #E0DBCF !important;
+}
+
+.timeInput:focus,
+.timeInput:hover {
+  border-color: #D3A625 !important;
+  box-shadow: 0 0 0 2px rgba(211, 166, 37, 0.2) !important;
+}
+
+.startButton {
+  min-width: 150px;
+  border-radius: 6px !important;
+  background: #8E0E00 !important;
+  border: 2px solid #704214 !important;
+  height: 45px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  color: #FFF !important;
+}
+
+.startButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), 0 0 10px rgba(211, 166, 37, 0.3) !important;
+  background: #B30000 !important;
+}
+
+.countdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ปรับสไตล์ตัวนับเวลาให้เป็นแบบนาฬิกาโบราณ */
+.countdown {
+  font-size: 8rem !important;
+  margin-bottom: 32px !important;
+  font-weight: bold !important;
+  color: #D3A625 !important;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  text-shadow: 0 0 10px rgba(211, 166, 37, 0.4);
+  position: relative;
+  line-height: 1 !important;
+}
+
+/* เพิ่มเวทมนตร์รอบๆ ตัวเลข */
+.countdown::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  right: -20px;
+  bottom: -10px;
+  border: 2px solid rgba(211, 166, 37, 0.3);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.countdown::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -25px;
+  right: -25px;
+  bottom: -15px;
+  background: radial-gradient(ellipse at center, rgba(211, 166, 37, 0.1) 0%, transparent 70%);
+  z-index: -2;
+  animation: magicPulse 3s infinite alternate;
+}
+
+@keyframes magicPulse {
+  0% { opacity: 0.3; transform: scale(0.95); }
+  100% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.countdown :global(.ant-statistic-content-value) {
+  font-size: 10rem !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  color: #D3A625 !important;
+}
+
+.countdown :global(.ant-statistic-content-value-int) {
+  line-height: 1 !important;
+}
+
+.pausedTime {
+  font-size: 10rem !important;
+  color: #FFD700 !important;
+  margin-bottom: 32px !important;
+  font-weight: bold !important;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  text-shadow: 0 0 15px rgba(211, 166, 37, 0.5);
+  line-height: 1 !important;
+}
+
+.controlButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.controlButtons button {
+  border-radius: 6px !important;
+  height: 45px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 20px !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  border-width: 2px !important;
+  background-color: #232830 !important;
+  border-color: #704214 !important;
+  color: #E0DBCF !important;
+}
+
+.controlButtons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 5px rgba(211, 166, 37, 0.3) !important;
+  border-color: #D3A625 !important;
+}
+
+.alertTimeUp {
+  margin-bottom: 16px;
+  border-radius: 6px !important;
+  border-color: #D3A625 !important;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  background-color: #3C2A14 !important;
+  color: #FFD700 !important;
+}
+
+/* เพิ่มเอฟเฟกต์เมจิกสำหรับแจ้งเตือนหมดเวลา */
+.alertTimeUp::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid #D3A625;
+  border-radius: 8px;
+  z-index: -1;
+  animation: alertGlow 2s infinite alternate;
+}
+
+@keyframes alertGlow {
+  0% { opacity: 0.3; box-shadow: 0 0 5px rgba(211, 166, 37, 0.3); }
+  100% { opacity: 0.7; box-shadow: 0 0 15px rgba(211, 166, 37, 0.6); }
+}
+
+/* เพิ่มเอฟเฟกต์เวทมนตร์เมื่อหมดเวลา */
+.alertTimeUp::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(211, 166, 37, 0.1) 0%, transparent 70%);
+  z-index: -2;
+  opacity: 0;
+  animation: magicWarning 2s infinite alternate;
+}
+
+@keyframes magicWarning {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 0.5; transform: scale(1.05); }
+}
+
+@media (max-width: 576px) {
   .countdown {
-    font-size: 8rem !important;
-    margin-bottom: 32px !important;
-    font-weight: bold !important;
-    background: linear-gradient(90deg, #EE8CCA, #A388EE);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(193, 92, 170, 0.2);
-    line-height: 1 !important;
+    font-size: 6rem !important;
   }
   
   .countdown :global(.ant-statistic-content-value) {
-    font-size: 10rem !important; /* ขนาดตัวเลขใหญ่มากๆ */
-    font-weight: bold !important;
-    line-height: 1 !important;
-  }
-  
-  .countdown :global(.ant-statistic-content-value-int) {
-    line-height: 1 !important;
+    font-size: 7rem !important;
   }
   
   .pausedTime {
-    font-size: 10rem !important;
-    color: #F9C54C !important;
-    margin-bottom: 32px !important;
-    font-weight: bold !important;
-    background: linear-gradient(90deg, #F9C54C, #FF6B8B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1 !important;
+    font-size: 7rem !important;
   }
   
   .controlButtons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
   
   .controlButtons button {
-    border-radius: 30px !important;
-    height: 45px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: 0 20px !important;
-    transition: all 0.3s ease !important;
+    width: 200px;
   }
-  
-  .controlButtons button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(163, 136, 238, 0.3) !important;
-  }
-  
-  .alertTimeUp {
-    margin-bottom: 16px;
-    border-radius: 12px !important;
-    border-color: #F9C54C !important;
-  }
-  
-  @media (max-width: 576px) {
-    .countdown {
-      font-size: 6rem !important;
-    }
-    
-    .countdown :global(.ant-statistic-content-value) {
-      font-size: 7rem !important;
-    }
-    
-    .pausedTime {
-      font-size: 7rem !important;
-    }
-    
-    .controlButtons {
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .controlButtons button {
-      width: 200px;
-    }
-  }
-  
-  /* Add unicorn horn effect to the header */
-  .timerCard > div:first-child::after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 30px solid #FFF5FB;
-    z-index: 0;
-    filter: drop-shadow(0 -3px 3px rgba(238, 140, 202, 0.3));
-  }
+}
+
+/* Add magical feather quill symbol to the timer card */
+.timerCard > div:first-child::after {
+  content: '✦';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  color: #FFD700;
+  z-index: 10;
+  animation: quillFloat 3s infinite alternate;
+  text-shadow: 0 0 10px rgba(211, 166, 37, 0.7);
+}
+
+@keyframes quillFloat {
+  0% { transform: rotate(-15deg) translateY(0); }
+  100% { transform: rotate(0deg) translateY(-5px); }
+}

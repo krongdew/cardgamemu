@@ -1,6 +1,8 @@
+/* my-card-game\app\page.module.css */
 .layout {
   min-height: 100vh;
-  background: linear-gradient(135deg, #FFF5FB 0%, #F0E5FF 100%);
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23704214' fill-opacity='0.05'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, #0F1419 0%, #1E232A 100%);
 }
 
 .header {
@@ -12,9 +14,10 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background: rgba(255, 245, 251, 0.8);
+  background: rgba(15, 20, 25, 0.9);
   backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(238, 140, 202, 0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 5px rgba(211, 166, 37, 0.2);
+  border-bottom: 1px solid rgba(112, 66, 20, 0.5);
 }
 
 .logoContainer {
@@ -27,13 +30,12 @@
 .logoText {
   font-size: 24px;
   font-weight: bold;
-  color: #EE8CCA;
+  color: #D3A625;
   margin-left: 12px;
-  /* Gradient text for extra magic */
-  background: linear-gradient(90deg, #EE8CCA, #A388EE);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(193, 92, 170, 0.2);
+  /* Gothic text for Harry Potter */
+  font-family: 'Garamond', 'Times New Roman', serif;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .content {
@@ -47,14 +49,13 @@
   position: relative;
 }
 
-/* Add clouds decoration */
+/* Add candle light decoration */
 .content::before, .content::after {
   content: "";
   position: absolute;
-  width: 120px;
-  height: 60px;
-  background: radial-gradient(ellipse at center, rgba(249, 210, 236, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
-  border-radius: 100%;
+  width: 80px;
+  height: 120px;
+  background: radial-gradient(ellipse at center, rgba(211, 166, 37, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
   z-index: -1;
 }
 
@@ -62,30 +63,40 @@
   top: 10%;
   left: 5%;
   transform: scale(1.5);
+  animation: flicker 5s infinite alternate;
 }
 
 .content::after {
   top: 15%;
   right: 5%;
-  transform: scale(2);
+  transform: scale(1.8);
+  animation: flicker 4s infinite alternate-reverse;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.5; transform: scale(1.5); }
+  50% { opacity: 0.7; transform: scale(1.7); }
 }
 
 .pageTitle {
   text-align: center;
   margin-bottom: 32px !important;
-  color: #C15CAA !important;
+  color: #D3A625 !important;
   font-size: 36px !important;
   position: relative;
   display: inline-block;
+  font-family: 'Garamond', 'Times New Roman', serif;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Add sparkles to title */
+/* Add quill pen to title */
 .pageTitle::before, .pageTitle::after {
   content: "✦";
   position: absolute;
   top: 0;
-  color: #F9C54C;
-  animation: twinkle 2s infinite alternate;
+  color: #FFD700;
+  animation: quillDip 2s infinite alternate;
 }
 
 .pageTitle::before {
@@ -98,24 +109,22 @@
   animation-delay: 1s;
 }
 
-@keyframes twinkle {
-  0% { opacity: 0.3; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1.2); }
+@keyframes quillDip {
+  0% { opacity: 0.5; transform: scale(0.8) rotate(-15deg); }
+  100% { opacity: 1; transform: scale(1.2) rotate(0deg); }
 }
 
 .cardRandomizerContainer {
   width: 100%;
   max-width: 1200px;
   margin-bottom: 32px;
-  /* Add rainbow border */
-  border: 3px solid transparent;
-  border-radius: 16px;
-  background-image: linear-gradient(#FFF5FB, #FFF5FB), 
-    linear-gradient(to right, #FF6B8B, #F9C54C, #85D9AF, #A388EE, #EE8CCA);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  /* Add magical border */
+  border: 4px solid #704214;
+  border-radius: 8px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(211, 166, 37, 0.2);
+  background-color: #1A1E26;
 }
 
 .cardRandomizerContainer::before {
@@ -125,21 +134,23 @@
   left: -10px;
   right: -10px;
   bottom: -10px;
-  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F9D2EC' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M0 20C0 8.954 8.954 0 20 0s20 8.954 20 20-8.954 20-20 20S0 31.046 0 20zm2 0c0 9.941 8.059 18 18 18s18-8.059 18-18S29.941 2 20 2 2 10.059 2 20zm2 0c0 8.837 7.163 16 16 16s16-7.163 16-16S28.837 4 20 4 4 11.163 4 20z'/%3E%3C/g%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='58' viewBox='0 0 42 58'%3E%3Cg fill='%23704214' fill-opacity='0.07'%3E%3Cpath d='M12 18h12v18h6v4H18V22h-6v-4zm-6-2v-4H0v-4h6V4h6v4h6v4H8v4H6zm-6 34v-4h6v8h6v4H6v-8H0v-4z'/%3E%3C/g%3E%3C/svg%3E");
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.5;
   pointer-events: none;
 }
 
 .footer {
   text-align: center;
-  background: rgba(255, 245, 251, 0.8);
+  background: rgba(15, 20, 25, 0.9);
   padding: 24px;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(112, 66, 20, 0.5);
+  color: #E0DBCF;
 }
 
-/* Add rainbow line to footer */
+/* Add magical line to footer */
 .footer::before {
   content: "";
   position: absolute;
@@ -147,23 +158,31 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(to right, #FF6B8B, #F9C54C, #85D9AF, #A388EE, #EE8CCA);
+  background: linear-gradient(to right, transparent, #D3A625, transparent);
+  animation: spellCast 3s infinite ease-in-out;
+}
+
+@keyframes spellCast {
+  0% { transform: scaleX(0.1); opacity: 0; }
+  50% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0.1); opacity: 0; }
 }
 
 .footer a {
-  color: #A388EE;
+  color: #FFD700;
   transition: color 0.3s;
   position: relative;
   display: inline-flex;
   align-items: center;
   padding: 8px 12px;
   margin: 0 8px;
-  border-radius: 20px;
+  border-radius: 4px;
+  font-family: 'Garamond', 'Times New Roman', serif;
 }
 
 .footer a:hover {
-  color: #EE8CCA;
-  background-color: rgba(249, 210, 236, 0.2);
+  color: #D3A625;
+  background-color: rgba(112, 66, 20, 0.3);
 }
 
 /* Media Queries for responsiveness */
